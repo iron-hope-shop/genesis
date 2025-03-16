@@ -77,7 +77,7 @@ Genesis is an AI-powered project generator that transforms a simple project spec
 ### **2.1 Installation**
 Clone the repository and navigate into the project directory:
 ```bash
-git clone https://github.com/your-org/genesis.git
+git clone https://github.com/iron-hope-shop/genesis.git
 cd genesis
 ```
 

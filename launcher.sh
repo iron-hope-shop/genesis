@@ -21,6 +21,7 @@ REMOVE_PROMPT=true
 REMOVE_LICENSE=true
 INIT_GITHUB=false
 KEEP_HELPERS=true
+REINIT_GIT=false
 GITHUB_USERNAME=""
 GITHUB_REPO=""
 GITHUB_PRIVATE=false
@@ -56,9 +57,11 @@ show_help() {
     echo -e "  ${GREEN}-r${NC}\tGitHub repository name (required with -g)"
     echo -e "  ${GREEN}-x${NC}\tMake GitHub repository private"
     echo -e "  ${GREEN}-m${NC}\tDon't keep genesis_helpers directory"
+    echo -e "  ${GREEN}-t${NC}\tReinitialize Git repository (without GitHub)"
     echo -e "\nExample:"
     echo -e "  ${YELLOW}./launcher.sh -i${NC}\t\t# Keep images (creates images directory automatically)"
     echo -e "  ${YELLOW}./launcher.sh -g -u myuser -r myrepo${NC}\t# Initialize GitHub repository"
+    echo -e "  ${YELLOW}./launcher.sh -t${NC}\t\t# Reinitialize Git repository (fresh history)"
 }
 
 # Check GitHub requirements
@@ -87,9 +90,59 @@ check_github_requirements() {
     fi
 }
 
+# Reinitialize Git repository - remove existing .git and create a fresh one
+reinit_git_repo() {
+    echo -e "${GREEN}Reinitializing Git repository...${NC}"
+    
+    # Check if .git directory exists
+    if [ -d ".git" ]; then
+        echo -e "${YELLOW}Removing existing Git repository...${NC}"
+        rm -rf .git
+    fi
+    
+    # Initialize new Git repository
+    git init
+    echo -e "${GREEN}Fresh Git repository initialized${NC}"
+    
+    # Add a default .gitignore if it doesn't exist
+    if [ ! -f ".gitignore" ]; then
+        echo -e "${YELLOW}Creating default .gitignore...${NC}"
+        cat > .gitignore << EOL
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Temporary files
+.temp/
+tmp/
+temp/
+
+# Logs
+logs/
+*.log
+EOL
+        echo -e "${GREEN}Default .gitignore created${NC}"
+    fi
+}
+
 # Initialize GitHub repository
 init_github_repo() {
     echo -e "${GREEN}Initializing GitHub repository...${NC}"
+    
+    # Reinitialize Git repository first (always reinit when using GitHub)
+    reinit_git_repo
+    
     local privacy=""
     if [[ "$GITHUB_PRIVATE" == true ]]; then
         privacy="--private"
@@ -101,7 +154,6 @@ init_github_repo() {
     gh repo create "$GITHUB_USERNAME/$GITHUB_REPO" $privacy --confirm
     
     # Set up git locally
-    git init
     git remote add origin "https://github.com/$GITHUB_USERNAME/$GITHUB_REPO.git"
     
     echo -e "${GREEN}GitHub repository initialized: https://github.com/$GITHUB_USERNAME/$GITHUB_REPO${NC}"
@@ -153,7 +205,7 @@ echo -e "${GREEN}Genesis Project Generator${NC}"
 echo -e "${BLUE}=====================================${NC}"
 
 # Parse command-line arguments
-while getopts "hikplngmu:r:x" opt; do
+while getopts "hikplngmu:r:xt" opt; do
   case $opt in
     h)
       show_help
@@ -187,6 +239,10 @@ while getopts "hikplngmu:r:x" opt; do
     m)
       KEEP_HELPERS=false
       echo -e "${YELLOW}Will not keep genesis_helpers directory${NC}"
+      ;;
+    t)
+      REINIT_GIT=true
+      echo -e "${YELLOW}Will reinitialize Git repository${NC}"
       ;;
     u)
       GITHUB_USERNAME="$OPTARG"
@@ -241,6 +297,7 @@ echo -e "  📝 Keep PROMPT.md: ${YELLOW}$([ "$REMOVE_PROMPT" == "false" ] && ec
 echo -e "  📜 Keep LICENSE: ${YELLOW}$([ "$REMOVE_LICENSE" == "false" ] && echo "true" || echo "false")${NC}"
 echo -e "  🧹 Keep all files: ${YELLOW}$KEEP_ALL${NC}"
 echo -e "  🤖 Keep helpers: ${YELLOW}$KEEP_HELPERS${NC}"
+echo -e "  🔄 Reinit Git: ${YELLOW}$REINIT_GIT${NC}"
 echo -e "  🔗 Init GitHub: ${YELLOW}$INIT_GITHUB${NC}"
 if [[ "$INIT_GITHUB" == true ]]; then
     echo -e "  👤 GitHub user: ${YELLOW}$GITHUB_USERNAME${NC}"
@@ -262,9 +319,15 @@ export GENESIS_GITHUB_REPO=$GITHUB_REPO
 export GENESIS_GITHUB_PRIVATE=$GITHUB_PRIVATE
 export GENESIS_KEEP_HELPERS=$KEEP_HELPERS
 export GENESIS_IMAGES_ROOT=true  # New variable to indicate images are in root directory
+export GENESIS_REINIT_GIT=$REINIT_GIT
 
 # Create temp directory and back up original files
 setup_temp_dir
+
+# Reinitialize Git repository if requested
+if [[ "$REINIT_GIT" == true && "$INIT_GITHUB" == false ]]; then
+    reinit_git_repo
+fi
 
 # Initialize GitHub repository if requested
 if [[ "$INIT_GITHUB" == true ]]; then

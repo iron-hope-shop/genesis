@@ -14,6 +14,10 @@
   - Common post-generation commands and examples
   - Instructions for extending helper scripts
   - Templates for structuring future AI prompts
+- Automatic Git repository reinitialization:
+  - Always reinitializes Git when using GitHub integration
+  - Added `-t` option to reinitialize Git without GitHub
+  - Creates a default .gitignore file when reinitializing
 
 ## [0.3.0] - 2024-03-16
 ### Changed

@@ -108,9 +108,13 @@ Configuration options:
 -r  GitHub repository name (required with -g)
 -x  Make GitHub repository private
 -m  Don't keep genesis_helpers directory
+-t  Reinitialize Git repository (fresh history)
 ```
 
-**Important**: Run Genesis in agent mode with YOLO mode enabled for best results. YOLO mode allows the AI to make more autonomous decisions, resulting in faster and more comprehensive project generation.
+**Important**: 
+- When using the `-g` option, Git is automatically reinitialized to create a fresh repository.
+- If you're not using GitHub but want a fresh Git history, use the `-t` option.
+- Run Genesis in agent mode with YOLO mode enabled for best results.
 
 This will open an interactive chat where you can:
 - Refine your project requirements
@@ -262,6 +266,22 @@ After generating your project, here are useful commands you might need:
 
 # Set up a GitHub Actions secret
 ./genesis_helpers/github.sh setup_actions_secret "API_KEY" "your-secret-api-key"
+```
+
+#### Git Repository Management
+```bash
+# Start with a fresh Git history (if you didn't use -t or -g)
+rm -rf .git
+git init
+git add .
+git commit -m "Initial commit"
+
+# Create and switch to a new feature branch
+git checkout -b feature/new-feature
+
+# Push to a remote repository you set up later
+git remote add origin https://github.com/username/repo.git
+git push -u origin main
 ```
 
 #### Branch Management

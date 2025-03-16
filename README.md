@@ -4,7 +4,6 @@
 
 <div align="center">
   
-  [![GitHub Release](https://img.shields.io/github/v/release/your-org/genesis?include_prereleases&label=Release)](https://github.com/your-org/genesis/releases)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   
 </div>
@@ -378,7 +377,7 @@ Include:
 
 ---
 
-## **7. 📈 Project Status**
+## **7. Project Status**
 
 ### **Implemented Features**
 - Interactive project generation

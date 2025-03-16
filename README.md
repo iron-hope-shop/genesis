@@ -162,7 +162,6 @@ project/
 ```
 
 Additional files:
-- `launcher.sh` - Legacy script for launching Genesis (optional)
 - `LICENSE` - MIT license for the project
 - `CHANGELOG.md` - Version history
 - `CONTRIBUTING.md` - Contribution guidelines

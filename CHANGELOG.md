@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## [0.4.1] - 2024-06-19
+### Changed
+- Removed "Planned Features" section from README.md to focus on current capabilities
+- Updated documentation to reflect current project status
+
 ## [0.4.0] - 2024-03-16
 ### Changed
 - Completely restructured README.md to follow a professional documentation format

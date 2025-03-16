@@ -45,11 +45,15 @@
 <summary><strong>📊 Project Information</strong></summary>
 
 - [🎁 What You Get](#5-what-you-get)
-- [📈 Project Status](#6-project-status)
+- [📚 Command Reference & Prompt Guide](#6-command-reference--prompt-guide)
+  - [Common Post-Generation Commands](#61-common-post-generation-commands)
+  - [Extending Helper Scripts](#62-extending-helper-scripts)
+  - [Structuring Future Prompts](#63-structuring-future-prompts)
+- [📈 Project Status](#7-project-status)
   - [Implemented Features](#implemented-features)
   - [Planned Features](#planned-features)
-- [📜 License](#7-license)
-- [🔍 See Also](#8-see-also)
+- [📜 License](#8-license)
+- [🔍 See Also](#9-see-also)
 
 </details>
 
@@ -239,7 +243,123 @@ For configuration options, run `./launcher.sh -h`.
 
 ---
 
-## **6. 📈 Project Status**
+## **6. 📚 Command Reference & Prompt Guide**
+
+### **6.1 Common Post-Generation Commands**
+
+After generating your project, here are useful commands you might need:
+
+#### GitHub Management
+```bash
+# Create a new issue
+./genesis_helpers/github.sh create_issue "Bug: Login not working" "The login form submission fails when..." "bug,priority:high"
+
+# Create a new milestone
+./genesis_helpers/github.sh create_milestone "v1.1.0" "Feature Release" "2024-06-30"
+
+# Add a collaborator
+./genesis_helpers/github.sh add_collaborator "username" "admin"
+
+# Set up a GitHub Actions secret
+./genesis_helpers/github.sh setup_actions_secret "API_KEY" "your-secret-api-key"
+```
+
+#### Branch Management
+```bash
+# Set up protection for a custom branch
+./genesis_helpers/branch_protection.sh feature 2
+
+# Create standard labels if you modified them
+./genesis_helpers/setup_labels.sh
+```
+
+#### Project Management
+```bash
+# Reset project milestones with a new project name
+./genesis_helpers/project_setup.sh "New Project Name"
+```
+
+### **6.2 Extending Helper Scripts**
+
+The `genesis_helpers` scripts are designed to be extensible. You can add your own custom functions:
+
+1. **Adding Custom Functions to Existing Scripts**:
+   ```bash
+   # Add to github.sh
+   function my_custom_github_function() {
+     # Your custom code here
+     gh api ...
+   }
+   ```
+
+2. **Creating New Helper Scripts**:
+   ```bash
+   # Create a new script, e.g., my_custom_helper.sh
+   #!/bin/bash
+   
+   # Import the GitHub helper for its functions
+   source "$(dirname "$0")/github.sh"
+   
+   # Define your custom functions
+   function custom_setup() {
+     # Your setup code here
+   }
+   
+   # Call the function directly if script is executed
+   if [[ "$1" ]]; then
+     "$@"
+   fi
+   ```
+
+3. **Make it executable**:
+   ```bash
+   chmod +x genesis_helpers/my_custom_helper.sh
+   ```
+
+### **6.3 Structuring Future Prompts**
+
+When working with Genesis or extending your project, these prompt patterns will help get the best results:
+
+#### Feature Addition Prompt Template
+```
+Add a new feature to [component] that allows users to [action].
+Requirements:
+- Must integrate with existing [system]
+- Should include tests
+- Update documentation to reflect changes
+```
+
+#### Bug Fix Prompt Template
+```
+Fix the bug in [component] where [issue happens].
+Steps to reproduce:
+1. [First step]
+2. [Second step]
+3. [Expected vs. actual behavior]
+```
+
+#### Refactoring Prompt Template
+```
+Refactor [component] to improve [performance/readability/maintainability].
+Focus on:
+- [Specific aspect to improve]
+- Ensure tests still pass
+- Maintain backward compatibility
+```
+
+#### Documentation Prompt Template
+```
+Create documentation for [component/feature].
+Include:
+- Purpose and overview
+- Usage examples
+- API methods (if applicable)
+- Common issues and troubleshooting
+```
+
+---
+
+## **7. 📈 Project Status**
 
 ### **Implemented Features**
 - Interactive project generation
@@ -261,11 +381,11 @@ For configuration options, run `./launcher.sh -h`.
 
 ---
 
-## **7. 📜 License**
+## **8. 📜 License**
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## **8. 🔍 See Also**
+## **9. 🔍 See Also**
 - [CHANGELOG.md](CHANGELOG.md) – Version history
 - [CONTRIBUTING.md](CONTRIBUTING.md) – Contribution guidelines

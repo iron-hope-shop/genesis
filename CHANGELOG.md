@@ -9,6 +9,12 @@
 - Improved styling of table of contents with category emojis
 - Better aligned documentation components for readability
 
+### Added
+- New Command Reference & Prompt Guide section with:
+  - Common post-generation commands and examples
+  - Instructions for extending helper scripts
+  - Templates for structuring future AI prompts
+
 ## [0.3.0] - 2024-03-16
 ### Changed
 - Moved images directory from `genesis/images` to root directory for easier asset management

@@ -77,18 +77,33 @@ Genesis is an AI-powered project generator that transforms a simple project spec
 ### **2.1 Installation**
 Clone the repository and navigate into the project directory:
 ```bash
-git clone https://github.com/iron-hope-shop/genesis.git
+git clone https://github.com/your-org/genesis.git
 cd genesis
 ```
 
 ### **2.2 Basic Usage**
 
-#### Step 1: Fill in Your Project Specs
-- Open `PROMPT.md` in this directory
-- Follow the patterns to describe your project
-- Be as detailed as possible
+Genesis now offers two methods to generate projects:
 
-#### Step 2: Generate Your Project
+#### Method 1: Agent-Based Approach (Recommended)
+1. Open this project in Cursor IDE
+2. Review and customize `PROMPT.md` with your project specifications
+3. Tell the agent: **"read instructions and follow PROMPT.md"**
+
+You can also specify configuration options:
+```
+read instructions and follow PROMPT.md with:
+- keep images
+- init github johndoe my-project private
+- keep prompt
+- keep license
+```
+
+This agent-based approach eliminates the need for the launcher script and provides a more conversational experience.
+
+#### Method 2: Launcher Script (Legacy)
+Alternatively, you can still use the traditional launcher script:
+
 ```bash
 ./launcher.sh [options]
 ```
@@ -119,7 +134,7 @@ This will open an interactive chat where you can:
 - Make real-time adjustments
 - Review and approve generated components
 
-For a complete GitHub setup, use:
+For a complete GitHub setup with the legacy method, use:
 ```bash
 ./launcher.sh -g -u your_username -r repo_name -x
 ```
@@ -134,7 +149,7 @@ Genesis has a simple, minimalist design with these key components:
 ```
 project/
 ├── PROMPT.md           # Your project specification template
-├── launcher.sh         # The script that launches the generator
+├── INSTRUCTIONS.md     # Instructions for the AI agent
 ├── README.md           # This documentation
 ├── images/             # Directory for project images
 │   ├── banner.gif      # Project banner
@@ -147,6 +162,7 @@ project/
 ```
 
 Additional files:
+- `launcher.sh` - Legacy script for launching Genesis (optional)
 - `LICENSE` - MIT license for the project
 - `CHANGELOG.md` - Version history
 - `CONTRIBUTING.md` - Contribution guidelines
@@ -190,7 +206,24 @@ The helper scripts can also be used individually at any time:
 ```
 
 ### **3.3 Process Flow**
-Genesis streamlines project generation with this process:
+
+#### Agent-Based Approach (Recommended)
+Genesis streamlines project generation with this simple process:
+
+1. You describe your project using our structured specification format in `PROMPT.md`
+2. Open the project in Cursor IDE
+3. Tell the agent: **"read instructions and follow PROMPT.md"** (with optional configuration)
+4. The agent reads the instructions and PROMPT.md
+5. If GitHub integration is requested, it sets up your repository automatically
+6. **Enable agent mode with YOLO mode** for autonomous decision-making
+7. The AI analyzes your requirements and works with you to refine them
+8. Genesis generates your project structure and codebase with your guidance
+9. All necessary files, configurations, and documentation are created
+10. Original files are backed up to a `.temp` directory
+11. Genesis cleans up, removing itself according to your chosen options
+
+#### Legacy Launcher Approach
+Alternatively, you can use the traditional launcher script:
 
 1. You describe your project using our structured specification format in `PROMPT.md`
 2. Run the launcher with your desired configuration options
@@ -340,63 +373,3 @@ When working with Genesis or extending your project, these prompt patterns will 
 
 #### Feature Addition Prompt Template
 ```
-Add a new feature to [component] that allows users to [action].
-Requirements:
-- Must integrate with existing [system]
-- Should include tests
-- Update documentation to reflect changes
-```
-
-#### Bug Fix Prompt Template
-```
-Fix the bug in [component] where [issue happens].
-Steps to reproduce:
-1. [First step]
-2. [Second step]
-3. [Expected vs. actual behavior]
-```
-
-#### Refactoring Prompt Template
-```
-Refactor [component] to improve [performance/readability/maintainability].
-Focus on:
-- [Specific aspect to improve]
-- Ensure tests still pass
-- Maintain backward compatibility
-```
-
-#### Documentation Prompt Template
-```
-Create documentation for [component/feature].
-Include:
-- Purpose and overview
-- Usage examples
-- API methods (if applicable)
-- Common issues and troubleshooting
-```
-
----
-
-## **7. Project Status**
-
-### **Implemented Features**
-- Interactive project generation
-- Complete codebase creation
-- Self-cleanup functionality
-- Command-line configuration
-- Agent mode with YOLO capabilities
-- GitHub repository initialization
-- Standard labels, milestones, and issues
-- Branch protection rules
-- Helper scripts for ongoing maintenance
-
----
-
-## **8. License**
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## **9. See Also**
-- [CHANGELOG.md](CHANGELOG.md) – Version history
-- [CONTRIBUTING.md](CONTRIBUTING.md) – Contribution guidelines

@@ -16,25 +16,25 @@
 </div>
 
 <details open="open">
-<summary><strong>🚀 Getting Started</strong></summary>
+<summary><strong>Getting Started</strong></summary>
 
-- [🌠 Introduction](#1-introduction)
+- [Introduction](#1-introduction)
   - [Overview](#11-overview)
   - [Objectives](#12-objectives)
-- [⚡ Quick Start](#2-quick-start)
+- [Quick Start](#2-quick-start)
   - [Installation](#21-installation)
   - [Basic Usage](#22-basic-usage)
 
 </details>
 
 <details open="open">
-<summary><strong>🔧 Core Documentation</strong></summary>
+<summary><strong>Core Documentation</strong></summary>
 
-- [🧩 How Genesis Works](#3-how-genesis-works)
+- [How Genesis Works](#3-how-genesis-works)
   - [Project Structure](#31-project-structure)
   - [GitHub Integration](#32-github-integration)
   - [Process Flow](#33-process-flow)
-- [👨‍💻 Development](#4-development)
+- [Development](#4-development)
   - [Prerequisites](#41-prerequisites)
   - [Configuration](#42-configuration)
   - [Contributing](#43-contributing)
@@ -42,24 +42,24 @@
 </details>
 
 <details open="open">
-<summary><strong>📊 Project Information</strong></summary>
+<summary><strong>Project Information</strong></summary>
 
-- [🎁 What You Get](#5-what-you-get)
-- [📚 Command Reference & Prompt Guide](#6-command-reference--prompt-guide)
+- [What You Get](#5-what-you-get)
+- [Command Reference & Prompt Guide](#6-command-reference--prompt-guide)
   - [Common Post-Generation Commands](#61-common-post-generation-commands)
   - [Extending Helper Scripts](#62-extending-helper-scripts)
   - [Structuring Future Prompts](#63-structuring-future-prompts)
-- [📈 Project Status](#7-project-status)
+- [Project Status](#7-project-status)
   - [Implemented Features](#implemented-features)
   - [Planned Features](#planned-features)
-- [📜 License](#8-license)
-- [🔍 See Also](#9-see-also)
+- [License](#8-license)
+- [See Also](#9-see-also)
 
 </details>
 
 ---
 
-## **1. 🌠 Introduction**
+## **1. Introduction**
 
 ### **1.1 Overview**
 Genesis is an AI-powered project generator that transforms a simple project specification into a complete, working codebase. It eliminates the need for templates and boilerplate by dynamically generating everything based on your requirements. With powerful GitHub automation and a focus on maintainable code, Genesis helps you launch new projects faster and with better quality.
@@ -74,7 +74,7 @@ Genesis is an AI-powered project generator that transforms a simple project spec
 
 ---
 
-## **2. ⚡ Quick Start**
+## **2. Quick Start**
 
 ### **2.1 Installation**
 Clone the repository and navigate into the project directory:
@@ -128,7 +128,7 @@ For a complete GitHub setup, use:
 
 ---
 
-## **3. 🧩 How Genesis Works**
+## **3. How Genesis Works**
 
 ### **3.1 Project Structure**
 Genesis has a simple, minimalist design with these key components:
@@ -207,7 +207,7 @@ Genesis streamlines project generation with this process:
 
 ---
 
-## **4. 👨‍💻 Development**
+## **4. Development**
 
 ### **4.1 Prerequisites**
 - Bash shell environment
@@ -225,7 +225,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 
 ---
 
-## **5. 🎁 What You Get**
+## **5. What You Get**
 Based on your specification, Genesis will generate:
 - Complete project structure
 - All source code files
@@ -247,7 +247,7 @@ For configuration options, run `./launcher.sh -h`.
 
 ---
 
-## **6. 📚 Command Reference & Prompt Guide**
+## **6. Command Reference & Prompt Guide**
 
 ### **6.1 Common Post-Generation Commands**
 
@@ -379,7 +379,7 @@ Include:
 
 ---
 
-## **7. 📈 Project Status**
+## **7. Project Status**
 
 ### **Implemented Features**
 - Interactive project generation
@@ -401,11 +401,11 @@ Include:
 
 ---
 
-## **8. 📜 License**
+## **8. License**
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## **9. 🔍 See Also**
+## **9. See Also**
 - [CHANGELOG.md](CHANGELOG.md) – Version history
 - [CONTRIBUTING.md](CONTRIBUTING.md) – Contribution guidelines

@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## [0.5.0] - 2024-06-20
+### Added
+- New agent-based workflow to replace launcher script:
+  - Created INSTRUCTIONS.md with comprehensive agent instructions
+  - Updated README.md with agent-based approach documentation
+  - Added support for configuration through conversational commands
+  - Simplified project generation process for users
+
+### Changed
+- Updated the project structure documentation to include new files
+- Made agent-based approach the recommended method, with launcher as legacy option
+- Improved process flow documentation to cover both approaches
+- Enhanced Quick Start section with clearer instructions
+
 ## [0.4.1] - 2024-06-19
 ### Changed
 - Removed "Planned Features" section from README.md to focus on current capabilities

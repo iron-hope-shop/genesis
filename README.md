@@ -1,44 +1,128 @@
-# Genesis: AI-Powered Project Generator
+<div align="center">
+  <img src="./images/banner.gif" alt="Genesis - AI-Powered Project Generator" width="100%">
+</div>
 
-## Quick Start (2 Simple Steps)
+<div align="center">
+  
+  [![GitHub Release](https://img.shields.io/github/v/release/your-org/genesis?include_prereleases&label=Release)](https://github.com/your-org/genesis/releases)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  
+</div>
 
-1. **Fill in Your Project Specs:**
-   - Open `PROMPT.md` in this directory
-   - Follow the patterns to describe your project
-   - Be as detailed as possible
+---
 
-2. **Generate Your Project:**
-   ```bash
-   ./launcher.sh [options]
-   ```
-   Configuration options:
-   ```
-   -h  Show help message
-   -i  Keep images from Genesis (creates images directory automatically)
-   -k  Keep all Genesis files (don't clean up)
-   -p  Keep PROMPT.md file
-   -l  Keep LICENSE file
-   -n  Non-interactive mode (future feature)
-   -g  Initialize GitHub repository
-   -u  GitHub username (required with -g)
-   -r  GitHub repository name (required with -g)
-   -x  Make GitHub repository private
-   -m  Don't keep genesis_helpers directory
-   ```
-   
-   **Important**: Run Genesis in agent mode with YOLO mode enabled for best results. 
-   YOLO mode allows the AI to make more autonomous decisions, resulting in faster and more
-   comprehensive project generation.
-   
-   This will open an interactive chat where you can:
-   - Refine your project requirements
-   - Make real-time adjustments
-   - Review and approve generated components
+<div align="center">
+  <h2>📖 Contents</h2>
+</div>
 
-That's it! Genesis will analyze your specification and generate your entire project.
+<details open="open">
+<summary><strong>🚀 Getting Started</strong></summary>
 
-## Project Structure
+- [🌠 Introduction](#1-introduction)
+  - [Overview](#11-overview)
+  - [Objectives](#12-objectives)
+- [⚡ Quick Start](#2-quick-start)
+  - [Installation](#21-installation)
+  - [Basic Usage](#22-basic-usage)
 
+</details>
+
+<details open="open">
+<summary><strong>🔧 Core Documentation</strong></summary>
+
+- [🧩 How Genesis Works](#3-how-genesis-works)
+  - [Project Structure](#31-project-structure)
+  - [GitHub Integration](#32-github-integration)
+  - [Process Flow](#33-process-flow)
+- [👨‍💻 Development](#4-development)
+  - [Prerequisites](#41-prerequisites)
+  - [Configuration](#42-configuration)
+  - [Contributing](#43-contributing)
+
+</details>
+
+<details open="open">
+<summary><strong>📊 Project Information</strong></summary>
+
+- [🎁 What You Get](#5-what-you-get)
+- [📈 Project Status](#6-project-status)
+  - [Implemented Features](#implemented-features)
+  - [Planned Features](#planned-features)
+- [📜 License](#7-license)
+- [🔍 See Also](#8-see-also)
+
+</details>
+
+---
+
+## **1. 🌠 Introduction**
+
+### **1.1 Overview**
+Genesis is an AI-powered project generator that transforms a simple project specification into a complete, working codebase. It eliminates the need for templates and boilerplate by dynamically generating everything based on your requirements. With powerful GitHub automation and a focus on maintainable code, Genesis helps you launch new projects faster and with better quality.
+
+### **1.2 Objectives**
+- **Rapid Bootstrapping:** Quickly convert your project specification into a working project
+- **Automated Configuration:** Generate tailored configuration files, scripts, and documentation
+- **GitHub Integration:** Set up repositories with labels, milestones, and branch protection
+- **Extensibility:** Helper scripts remain available for ongoing project maintenance
+- **Clean Output:** Genesis removes itself after generation, leaving only your project files
+- **AI-Driven:** Uses artificial intelligence to understand and implement your requirements
+
+---
+
+## **2. ⚡ Quick Start**
+
+### **2.1 Installation**
+Clone the repository and navigate into the project directory:
+```bash
+git clone https://github.com/your-org/genesis.git
+cd genesis
+```
+
+### **2.2 Basic Usage**
+
+#### Step 1: Fill in Your Project Specs
+- Open `PROMPT.md` in this directory
+- Follow the patterns to describe your project
+- Be as detailed as possible
+
+#### Step 2: Generate Your Project
+```bash
+./launcher.sh [options]
+```
+
+Configuration options:
+```
+-h  Show help message
+-i  Keep images from Genesis (creates images directory automatically)
+-k  Keep all Genesis files (don't clean up)
+-p  Keep PROMPT.md file
+-l  Keep LICENSE file
+-n  Non-interactive mode (future feature)
+-g  Initialize GitHub repository
+-u  GitHub username (required with -g)
+-r  GitHub repository name (required with -g)
+-x  Make GitHub repository private
+-m  Don't keep genesis_helpers directory
+```
+
+**Important**: Run Genesis in agent mode with YOLO mode enabled for best results. YOLO mode allows the AI to make more autonomous decisions, resulting in faster and more comprehensive project generation.
+
+This will open an interactive chat where you can:
+- Refine your project requirements
+- Make real-time adjustments
+- Review and approve generated components
+
+For a complete GitHub setup, use:
+```bash
+./launcher.sh -g -u your_username -r repo_name -x
+```
+
+---
+
+## **3. 🧩 How Genesis Works**
+
+### **3.1 Project Structure**
 Genesis has a simple, minimalist design with these key components:
 
 ```
@@ -56,8 +140,6 @@ project/
     └── branch_protection.sh # Branch protection rules setup
 ```
 
-The `genesis_helpers` scripts are kept by default to provide ongoing support for repository management. They're used both during initialization and can be used later for maintenance tasks.
-
 Additional files:
 - `LICENSE` - MIT license for the project
 - `CHANGELOG.md` - Version history
@@ -65,8 +147,9 @@ Additional files:
 - `.temp/` - Temporary backup of original files
 - `genesis/` - Supporting directory (removed during cleanup unless -k is used)
 
-## GitHub Integration
+The `genesis_helpers` scripts are kept by default to provide ongoing support for repository management. They're used both during initialization and can be used later for maintenance tasks.
 
+### **3.2 GitHub Integration**
 Genesis includes powerful GitHub automation through the helper scripts:
 
 ```bash
@@ -100,9 +183,8 @@ The helper scripts can also be used individually at any time:
 ./genesis_helpers/github.sh add_collaborator "username" "admin"
 ```
 
-## How It Works
-
-Genesis uses AI to transform your project specification into a complete, working codebase:
+### **3.3 Process Flow**
+Genesis streamlines project generation with this process:
 
 1. You describe your project using our structured specification format in `PROMPT.md`
 2. Run the launcher with your desired configuration options
@@ -115,8 +197,27 @@ Genesis uses AI to transform your project specification into a complete, working
 9. Original files are backed up to a `.temp` directory
 10. Genesis cleans up, removing itself according to your chosen options (keeping helper scripts by default)
 
-## What You Get
+---
 
+## **4. 👨‍💻 Development**
+
+### **4.1 Prerequisites**
+- Bash shell environment
+- GitHub CLI (gh) installed and authenticated (for GitHub integration)
+- Git installed and configured
+
+### **4.2 Configuration**
+- **Images:** Project images are stored in the root `images/` directory
+- **GitHub Automation:** Helper scripts in `genesis_helpers/` provide robust GitHub integration
+- **Specification Format:** Use `PROMPT.md` in the root directory to describe your project requirements
+- **Dynamic Updates:** Post-generation, README and documentation update automatically to reflect your project details
+
+### **4.3 Contributing**
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+---
+
+## **5. 🎁 What You Get**
 Based on your specification, Genesis will generate:
 - Complete project structure
 - All source code files
@@ -128,183 +229,43 @@ Based on your specification, Genesis will generate:
 - Fully configured GitHub repository (if requested)
 - Helper scripts for ongoing project management
 
-## Need Help?
-
-Check `PROMPT.md` for:
+Need help? Check `PROMPT.md` for:
 - Example patterns to follow
 - Structured sections for all aspects of your project
 - Clear instructions and guidelines
 - Tips for getting the best results
 
-Run `./launcher.sh -h` for help with configuration options.
-
-For GitHub automation options:
-- Check individual scripts in `genesis_helpers/` directory
-- Run `./genesis_helpers/github.sh` without arguments to see available functions
-
-## License
-MIT License - See LICENSE file for details
+For configuration options, run `./launcher.sh -h`.
 
 ---
 
-## Detailed Information
+## **6. 📈 Project Status**
 
-### Project Overview
-Genesis is a project generator that uses AI to transform a simple project specification into a complete codebase. It eliminates the need for templates and boilerplate by dynamically generating everything based on your requirements.
+### **Implemented Features**
+- Interactive project generation
+- Complete codebase creation
+- Self-cleanup functionality
+- Command-line configuration
+- Agent mode with YOLO capabilities
+- GitHub repository initialization
+- Standard labels, milestones, and issues
+- Branch protection rules
+- Helper scripts for ongoing maintenance
 
-### Key Features
-- **AI-Powered Generation:** Transform specifications into complete codebases
-- **Interactive Refinement:** Work with the AI to refine your project as it's built
-- **Clean Output:** When done, Genesis removes itself leaving only your project
-- **Flexible Options:** Control what to keep via simple command-line flags
-
-### Installation
-Clone the repository and navigate into the project directory:
-```bash
-git clone https://github.com/your-org/genesis.git
-cd genesis
-```
-
-### Project Status
-- **Current Version:** 1.0.0
-- **Implemented Features:**
-  - Interactive project generation
-  - Complete codebase creation
-  - Self-cleanup functionality
-  - Command-line configuration
-  - Agent mode with YOLO capabilities
-- **Planned Features:**
-  - Enhanced image handling
-  - Expanded template options
-  - Non-interactive mode
-
-<div align="center">
-  <img src="images/banner.gif" alt="Genesis Seed Repository" width="100%">
-</div>
-
-<div align="center">
-  [![GitHub Release](https://img.shields.io/github/v/release/your-org/genesis?include_prereleases&label=Release)](https://github.com/your-org/genesis/releases)
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-</div>
+### **Planned Features**
+- Enhanced image handling
+- Expanded template options
+- Non-interactive mode
+- Enhanced automation for containerization and deployment
+- Expanded integrations with GitHub issues and CI pipelines
 
 ---
 
-<div align="center">
-  <h2>📖 Contents</h2>
-</div>
-
-<details open="open">
-<summary><strong>Getting Started</strong></summary>
-
-- [Genesis: AI-Powered Project Generator](#genesis-ai-powered-project-generator)
-  - [Quick Start (2 Simple Steps)](#quick-start-2-simple-steps)
-  - [Project Structure](#project-structure)
-  - [GitHub Integration](#github-integration)
-  - [How It Works](#how-it-works)
-  - [What You Get](#what-you-get)
-  - [Need Help?](#need-help)
-  - [License](#license)
-  - [Detailed Information](#detailed-information)
-    - [Project Overview](#project-overview)
-    - [Key Features](#key-features)
-    - [Installation](#installation)
-    - [Project Status](#project-status)
-  - [1. Introduction](#1-introduction)
-    - [1.1 Overview](#11-overview)
-    - [1.2 Objectives](#12-objectives)
-  - [2. How Genesis Works](#2-how-genesis-works)
-  - [3. Quick Start](#3-quick-start)
-    - [Installation](#installation-1)
-    - [Bootstrapping](#bootstrapping)
-  - [4. Development](#4-development)
-  - [5. License](#5-license)
-  - [6. Project Status](#6-project-status)
-  - [See Also](#see-also)
-  
-</details>
-
-<details open="open">
-<summary><strong>Core Documentation</strong></summary>
-
-- [How Genesis Works](#2-how-genesis-works)
-- [Development](#4-development)
-
-</details>
-
-<details open="open">
-<summary><strong>Project Information</strong></summary>
-
-- [License](#5-license)
-- [Project Status](#6-project-status)
-- [See Also](#see-also)
-
-</details>
+## **7. 📜 License**
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 1. Introduction
-
-### 1.1 Overview
-Genesis is a seed repository designed to transform your Software Design Spec (SDS) into a fully realized software suite. It provides a modular engine that automates configuration, documentation generation, and project setup.
-
-### 1.2 Objectives
-- **Rapid Bootstrapping:** Quickly convert your SDS into a working project.
-- **Automated Configuration:** Generate tailored configuration files, scripts, and documentation.
-- **Extensible Framework:** Easily adapt and extend the bootstrapping process to meet your project's unique needs.
-
----
-
-## 2. How Genesis Works
-Genesis streamlines project initialization with a centralized engine and simple configuration:
-- **Core Engine & Configuration:** All primary scripts and settings live within the `genesis` folder.
-- **Specification Format:** Use `PROMPT.md` in the root directory to describe your project requirements.
-- **Assets & Resources:** Project images are stored in the root `images/` directory.
-- **GitHub Automation:** Helper scripts in `genesis_helpers/` provide robust GitHub integration.
-- **Automated Bootstrapping:** Execute the launcher with agent/YOLO mode enabled to transform your specification into a complete project.
-- **Dynamic Updates:** Post-generation, the README and documentation update automatically to reflect your project details.
-
----
-
-## 3. Quick Start
-
-### Installation
-Clone the repository and navigate into the project directory:
-```bash
-git clone https://github.com/your-org/genesis.git
-cd genesis
-```
-
-### Bootstrapping
-Launch Genesis to begin transforming your specification into a complete software suite:
-```bash
-./launcher.sh -g -u your_username -r repo_name
-```
-
-For best results, run Genesis in agent mode with YOLO mode enabled when prompted in the chat interface. This allows the AI to make more autonomous decisions, resulting in faster and more comprehensive project generation.
-
----
-
-## 4. Development
-- **Configuration:** Modify settings in `genesis/config/genesis.config.json` to adjust language, CI/CD pipelines, deployment parameters, and more.
-- **Testing & Contribution:** Run tests (if available) and refer to [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on contributing improvements.
-
----
-
-## 5. License
-This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
-
----
-
-## 6. Project Status
-- **Implemented Features:**
-  - Core bootstrapping engine with dynamic documentation generation.
-  - Configurable settings for deployment, CI/CD, and issue management.
-- **Planned Features:**
-  - Enhanced automation for containerization and deployment.
-  - Expanded integrations with GitHub issues and CI pipelines.
-
----
-
-## See Also
-- [CHANGELOG.md](CHANGELOG.md) – Version history.
-- [CONTRIBUTING.md](CONTRIBUTING.md) – Contribution guidelines.
+## **8. 🔍 See Also**
+- [CHANGELOG.md](CHANGELOG.md) – Version history
+- [CONTRIBUTING.md](CONTRIBUTING.md) – Contribution guidelines

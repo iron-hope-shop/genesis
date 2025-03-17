@@ -88,6 +88,8 @@ Genesis now offers two methods to generate projects:
 #### Method 1: Agent-Based Approach (Recommended)
 1. Open this project in Cursor IDE
 2. Review and customize `PROMPT.md` with your project specifications (this is your project specification template)
+   - For inspiration, check the `PROMPT_IDEAS/` directory which contains templates for various project types
+   - You can copy from one of these templates into your PROMPT.md as a starting point
 3. Tell the agent: **"read instructions and follow PROMPT.md"**
 
 You can also specify configuration options:
@@ -154,6 +156,11 @@ project/
 ├── PROMPT.md           # Your project specification template
 ├── INSTRUCTIONS.md     # Instructions for the AI agent
 ├── README.md           # This documentation
+├── PROMPT_IDEAS/       # Example templates for various project types (removed during generation)
+│   ├── web_app_react_node.md
+│   ├── mobile_app_react_native.md
+│   ├── blockchain_cryptocurrency_app.md
+│   └── ...             # Many more project type templates
 ├── genesis/            # Core reference directory for AI operations
 │   ├── PRIME_DIRECTIVE.md # Core principles and guidelines
 │   ├── CHECKLIST.md    # Verification checklists for different actions
@@ -175,6 +182,8 @@ Additional files:
 - `LICENSE` - MIT license for the project
 - `CHANGELOG.md` - Version history
 - `CONTRIBUTING.md` - Contribution guidelines
+
+The `PROMPT_IDEAS` directory contains numerous pre-made templates for different types of projects. You can use these as a starting point for your `PROMPT.md`. This directory is automatically removed during project generation.
 
 The `genesis` directory serves as the AI's "memory" and reference point, containing prime directives, checklists, best practices, helper scripts, images, and user data. It should be preserved for future AI operations to maintain consistency and quality in your project.
 
@@ -280,6 +289,8 @@ Need help? Check `PROMPT.md` for:
 - Structured sections for all aspects of your project
 - Clear instructions and guidelines
 - Tips for getting the best results
+
+For additional inspiration, browse the `PROMPT_IDEAS/` directory which contains numerous pre-made templates for different types of projects (web apps, mobile apps, APIs, etc.). These templates can be used as a starting point for your own project specifications.
 
 For configuration options, run `./launcher.sh -h`.
 

@@ -66,6 +66,7 @@ Before generating the project:
 2. Backup original Genesis files to .temp:
    - genesis/ directory (if it exists)
    - PROMPT.md, README.md, LICENSE, CHANGELOG.md, CONTRIBUTING.md
+   - PROMPT_IDEAS/ directory (template examples for future projects)
 
 After project generation, clean up based on configuration:
 1. If KEEP_ALL=false:
@@ -73,7 +74,7 @@ After project generation, clean up based on configuration:
    - If REMOVE_LICENSE=true: Remove LICENSE file
    - Remove this INSTRUCTIONS.md file
    - Remove launcher.sh if it exists
-   - Remove PROMPT_IDEAS/ directory if it exists
+   - Always remove PROMPT_IDEAS/ directory (these are just examples for users creating Genesis, not needed in generated projects)
    - If KEEP_GENESIS=false: Remove genesis directory (but default is to keep it)
    - If KEEP_GENESIS=true: Ensure the genesis directory contains all reference files:
      - PRIME_DIRECTIVE.md

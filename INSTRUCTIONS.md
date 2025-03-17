@@ -130,8 +130,8 @@ Ensure these scripts are executable before using them.
 1. Be creative and don't constrain yourself to templates
 2. Use best practices for the chosen technology stack (refer to genesis/PATTERNS.md)
 3. Make everything properly documented and immediately usable
-4. Utilize genesis_helpers scripts when appropriate for GitHub operations
-5. Keep the genesis_helpers directory unless instructed otherwise
+4. Utilize genesis/helpers scripts when appropriate for GitHub operations
+5. Keep the genesis directory with all its subdirectories unless instructed otherwise
 6. Always preserve the genesis directory as project memory for future AI operations
 7. Consult genesis/PRIME_DIRECTIVE.md before making significant decisions
 8. Follow the appropriate checklist in genesis/CHECKLIST.md for your action type

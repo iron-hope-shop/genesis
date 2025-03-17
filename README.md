@@ -294,16 +294,16 @@ After generating your project, here are useful commands you might need:
 #### GitHub Management
 ```bash
 # Create a new issue
-./genesis_helpers/github.sh create_issue "Bug: Login not working" "The login form submission fails when..." "bug,priority:high"
+./genesis/helpers/github.sh create_issue "Bug: Login not working" "The login form submission fails when..." "bug,priority:high"
 
 # Create a new milestone
-./genesis_helpers/github.sh create_milestone "v1.1.0" "Feature Release" "2024-06-30"
+./genesis/helpers/github.sh create_milestone "v1.1.0" "Feature Release" "2024-06-30"
 
 # Add a collaborator
-./genesis_helpers/github.sh add_collaborator "username" "admin"
+./genesis/helpers/github.sh add_collaborator "username" "admin"
 
 # Set up a GitHub Actions secret
-./genesis_helpers/github.sh setup_actions_secret "API_KEY" "your-secret-api-key"
+./genesis/helpers/github.sh setup_actions_secret "API_KEY" "your-secret-api-key"
 ```
 
 #### Git Repository Management
@@ -325,21 +325,21 @@ git push -u origin main
 #### Branch Management
 ```bash
 # Set up protection for a custom branch
-./genesis_helpers/branch_protection.sh feature 2
+./genesis/helpers/branch_protection.sh feature 2
 
 # Create standard labels if you modified them
-./genesis_helpers/setup_labels.sh
+./genesis/helpers/setup_labels.sh
 ```
 
 #### Project Management
 ```bash
 # Reset project milestones with a new project name
-./genesis_helpers/project_setup.sh "New Project Name"
+./genesis/helpers/project_setup.sh "New Project Name"
 ```
 
 ### **6.2 Extending Helper Scripts**
 
-The `genesis_helpers` scripts are designed to be extensible. You can add your own custom functions:
+The `genesis/helpers` scripts are designed to be extensible. You can add your own custom functions:
 
 1. **Adding Custom Functions to Existing Scripts**:
    ```bash
@@ -371,7 +371,7 @@ The `genesis_helpers` scripts are designed to be extensible. You can add your ow
 
 3. **Make it executable**:
    ```bash
-   chmod +x genesis_helpers/my_custom_helper.sh
+   chmod +x genesis/helpers/my_custom_helper.sh
    ```
 
 ### **6.3 Structuring Future Prompts**
